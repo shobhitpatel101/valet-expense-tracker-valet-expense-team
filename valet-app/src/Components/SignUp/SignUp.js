@@ -12,9 +12,13 @@ import { doSignup } from "../../Redux/Auth/AuthAction";
 import PasswordInput from "../PasswordInput";
 import { textFieldStyle } from "../../Styles/MUI/Mui";
 import { checkForEmptyInputs } from "../../Utils/HelperFunction";
+import {Link} from 'react-router-dom'
+import { getAuthTokenStatus } from "../../Routes/AppRoutes";
+import { useNavigate } from "react-router-dom";
 function SignUp() {
-  const { auth } = useSelector((state) => state, shallowEqual) || {};
+  const { auth } = useSelector(({auth}) => auth, shallowEqual) || {};
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [signUpDetails, setSignUpDetails] = useState({
     userName: "",
@@ -39,6 +43,16 @@ function SignUp() {
       return;
     }
   };
+
+  useEffect(() => {
+    if ((auth.isFulfilled && auth.data.Status) && getAuthTokenStatus()) {
+      if (window.innerWidth > 900) {
+        navigate("/dashboard");
+      } else {
+        navigate("/mobile-dashboard");
+      }
+    }
+  }, [auth,navigate]);
 
   return (
     <div className="user-auth-signup-cont">
@@ -104,7 +118,7 @@ function SignUp() {
           </Button>
         </div>
         <div>
-          <a href="#">Have an account? Login</a>
+          <Link to="/login">Have an account? Login</Link>
         </div>
       </div>
       <div className="google-auth-cont">

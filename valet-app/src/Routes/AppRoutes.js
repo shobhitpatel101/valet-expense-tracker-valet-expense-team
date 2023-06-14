@@ -24,7 +24,18 @@ import NotFoundPage from "../Pages/NotFoundPage";
 import OtpVerification from "../Components/ForgotPassword/OtpVerification";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import ChangePassword from "../Components/ForgotPassword/ChangePassword";
+import PasswordOp from "../Components/ForgotPassword/PasswordOp";
+
+export const getAuthTokenStatus = () => {
+  if (
+    !localStorage.getItem("valet-auth-token") ||
+    localStorage.getItem("valet-auth-token") === "undefined" ||
+    localStorage.getItem("valet-auth-token") === "null"
+  ) {
+    return false;
+  }
+  return true;
+};
 const AppRoutes = () => {
   const isDesktop = useMediaQuery({ minWidth: 900 });
   const location = useLocation();
@@ -34,12 +45,12 @@ const AppRoutes = () => {
     routePaths.SIGNUP,
     routePaths.FORGOTRPASSWORD,
     routePaths.ROOT,
-    routePaths.CHANGE_PASSWORD,
-    routePaths.OTPVERIFICATION
   ]);
+
+ 
   useEffect(() => {
     if (
-      localStorage.getItem("valet-auth-token") &&
+      getAuthTokenStatus() &&
       authNotNeededRoutes.includes(location.pathname)
     ) {
       if (window.innerWidth > 900) {
@@ -72,34 +83,18 @@ const AppRoutes = () => {
         path={routePaths.FORGOTRPASSWORD}
         element={
           <UserAuthPage>
-            <ForgotPassword />
-          </UserAuthPage>
-        }
-      />
-      <Route
-        path={routePaths.OTPVERIFICATION}
-        element={
-          <UserAuthPage>
-            <OtpVerification />
-          </UserAuthPage>
-        }
-      />
-      <Route
-        path={routePaths.CHANGE_PASSWORD}
-        element={
-          <UserAuthPage>
-            <ChangePassword />
+            <PasswordOp />
           </UserAuthPage>
         }
       />
 
       {/* Desktop Routes */}
-      {isDesktop && localStorage.getItem("valet-auth-token") && (
+      {isDesktop && getAuthTokenStatus() && (
         <Route path={routePaths.DASHBOARD} element={<DashBoard />} />
       )}
 
       {/* Mobile Routes */}
-      {!isDesktop && localStorage.getItem("valet-auth-token") && (
+      {!isDesktop && getAuthTokenStatus() && (
         <>
           <Route
             path={routePaths.MOBILE_DASHBOARD}

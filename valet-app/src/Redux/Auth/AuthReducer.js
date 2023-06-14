@@ -3,7 +3,9 @@ import {
   doSignUpActionType,
   getUserDetailsActionType,
   updateUserDetailsActionType,
-  validateTokenActionType,
+  validateOtpActionType,
+  forgotPasswordActionType,
+  updatePasswordActionType,
 } from "./AuthAction";
 import promiseState from "../ReduxUtils/ReduxReducerHelper";
 const initState = {
@@ -16,7 +18,13 @@ const initState = {
   updatedProfile: {
     ...promiseState(false, false, false, {}),
   },
-  tokenValidation: {
+  otpVerification: {
+    ...promiseState(false, false, false, {}),
+  },
+  forgotPassword: {
+    ...promiseState(false, false, false, {}),
+  },
+  changedPassword: {
     ...promiseState(false, false, false, {}),
   },
 };
@@ -94,24 +102,66 @@ const AuthReducer = (state = initState, action) => {
           ...promiseState(false, false, true, {}),
         },
       };
-    case validateTokenActionType.pending:
+    case forgotPasswordActionType.pending:
       return {
         ...state,
-        tokenValidation: {
+        forgotPassword: {
           ...promiseState(true, false, false, {}),
         },
       };
-    case validateTokenActionType.fulfilled:
+    case forgotPasswordActionType.fulfilled:
       return {
         ...state,
-        tokenValidation: {
+        forgotPassword: {
           ...promiseState(false, true, false, action.payload),
         },
       };
-    case validateTokenActionType.rejected:
+    case forgotPasswordActionType.rejected:
       return {
         ...state,
-        tokenValidation: {
+        forgotPassword: {
+          ...promiseState(false, false, true, {}),
+        },
+      };
+    case validateOtpActionType.pending:
+      return {
+        ...state,
+        otpVerification: {
+          ...promiseState(true, false, false, {}),
+        },
+      };
+    case validateOtpActionType.fulfilled:
+      return {
+        ...state,
+        otpVerification: {
+          ...promiseState(false, true, false, action.payload),
+        },
+      };
+    case validateOtpActionType.rejected:
+      return {
+        ...state,
+        otpVerification: {
+          ...promiseState(false, false, true, {}),
+        },
+      };
+    case updatePasswordActionType.pending:
+      return {
+        ...state,
+        changedPassword: {
+          ...promiseState(true, false, false, {}),
+        },
+      };
+    case updatePasswordActionType.fulfilled:
+      return {
+        ...state,
+        changedPassword: {
+          ...promiseState(false, true, false, action.payload),
+        },
+      };
+    case updatePasswordActionType.rejected:
+      return {
+        ...state,
+        changedPassword: {
           ...promiseState(false, false, true, {}),
         },
       };

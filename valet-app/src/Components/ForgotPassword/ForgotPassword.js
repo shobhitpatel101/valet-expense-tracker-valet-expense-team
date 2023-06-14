@@ -2,9 +2,10 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import "../../Styles/Components/ForgotPassword.scss";
 import Button from "@mui/material/Button";
-import { muiContainedButtonStyle, muiGoogleAuthButtonStyle } from "../../Styles/MUI/Mui";
+import {Link} from 'react-router-dom'
+import { muiContainedButtonStyle } from "../../Styles/MUI/Mui";
 
-function ForgotPassword() {
+function ForgotPassword({email,setEmail,handleSendForgotPasswordRequest}) {
   return (
       <div className="user-auth-forgot-password-content">
         <div className="forgot-password-text">
@@ -24,6 +25,7 @@ function ForgotPassword() {
               label="Email"
               size="medium"
               fullWidth
+              onChange={(e)=>{setEmail(e.target.value)}}
             />
           </div>
         </div>
@@ -34,7 +36,7 @@ function ForgotPassword() {
               color="primary"
               fullWidth
               onClick={()=>{
-                document.documentElement.setAttribute('data-theme', 'dark');
+                handleSendForgotPasswordRequest()
               }}
               style={muiContainedButtonStyle}
             >
@@ -42,9 +44,9 @@ function ForgotPassword() {
             </Button>
           </div>
           <div className="forgot-password-external-links">
-            <a href="3">Back to Login</a>
+            <Link to="/login">Back to Login</Link>
             <span>Or</span>
-            <a href="#">Register</a>
+            <Link to="/signup">Register</Link>
           </div>
         </div>
       </div>

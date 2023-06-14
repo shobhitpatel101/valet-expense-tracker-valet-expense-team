@@ -6,7 +6,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { textFieldStyle } from "../Styles/MUI/Mui";
-function PasswordInput({ onChange }) {
+function PasswordInput({ onChange,label="" }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -21,7 +21,7 @@ function PasswordInput({ onChange }) {
         name="password"
         sx={textFieldStyle}
         placeholder="abc@123"
-        label="Password"
+        label={label ? label:"Password"}
         type={showPassword ?"text":"password"}
         style={{paddingLeft:"-4rem"}}
         InputProps={{

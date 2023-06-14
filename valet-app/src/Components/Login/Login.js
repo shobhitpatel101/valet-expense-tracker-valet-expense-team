@@ -13,6 +13,8 @@ import PasswordInput from "../PasswordInput";
 import { checkForEmptyInputs } from "../../Utils/HelperFunction";
 import { textFieldStyle } from "../../Styles/MUI/Mui";
 import { useNavigate } from "react-router-dom";
+import { getAuthTokenStatus } from "../../Routes/AppRoutes";
+import {Link} from 'react-router-dom'
 function Login() {
   const { auth } = useSelector(({ auth }) => auth, shallowEqual) || {};
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ function Login() {
   };
 
   useEffect(() => {
-    if ((auth.isFulfilled && auth.data.Status) && localStorage.getItem('valet-auth-token')) {
+    if ((auth.isFulfilled && auth.data.Status) && getAuthTokenStatus()) {
       if (window.innerWidth > 900) {
         navigate("/dashboard");
       } else {
@@ -67,7 +69,7 @@ function Login() {
         <div>
           <PasswordInput onChange={handleLoginFormChange} />
           <div>
-            <a href="#">Forgot Password?</a>
+            <Link to="/forgotpassword">Forgot Password?</Link>
           </div>
         </div>
       </div>
@@ -84,7 +86,7 @@ function Login() {
           </Button>
         </div>
         <div>
-          <a href="#">Don't have an account? Register</a>
+          <Link to="/signup">Don't have an account? Register</Link>
         </div>
       </div>
       <div className="google-auth-cont">

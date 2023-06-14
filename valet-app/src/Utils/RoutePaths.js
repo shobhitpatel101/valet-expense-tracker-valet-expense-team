@@ -10,8 +10,6 @@ const routePaths = {
     MOBILE_GOALS:'/mobile-dashboard/goals',
     MOBILE_YEARLY_OVERVIEW:'/mobile-dashboard/yearlyoverview',
     MOBILE_PROFILE:'/mobile-dashboard/profile',
-    OTPVERIFICATION:'/otpverification',
-    CHANGE_PASSWORD:'/change-password',
 };
 
 

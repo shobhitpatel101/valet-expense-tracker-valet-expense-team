@@ -86,6 +86,7 @@ function Profile() {
   };
 
   const handleUserProfileDetailsUpdate = () => {
+    debugger;
     if (
       checkForEmptyInputs(userProfileDetails) &&
       !checkForSameProfileDetails(userProfileDetails, data)
@@ -111,7 +112,7 @@ function Profile() {
       setUserProfileDetails((prev) => ({
         userName: data?.userName || "",
         email: data?.email || "",
-        password: data?.password || "",
+        password:"",
         profileImage: data?.profileImage || "",
       }));
     }
@@ -174,7 +175,7 @@ function Profile() {
         <TextField
           sx={textFieldStyle}
           name="password"
-          label="Password"
+          label="New Password"
           type={showPassword ? "text" : "password"}
           style={{ paddingLeft: "-4rem" }}
           InputProps={{

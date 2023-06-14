@@ -2,7 +2,7 @@ const apiPaths = {
     LOGIN: `/login`,
     SIGNUP: `/signup`,
     LOGOUT: `/logout`,
-    VALIDATE_TOKEN:`/validateToken`,
+    VALIDATE_OTP:`/verify-otp`,
     FETCH_ACCOUNT_BY_USER : `/accounts`,
     FETCH_CATEGORY_BY_USER : `/categories`,
     FETCH_GOAL_BY_USER : `/goals`,
@@ -30,7 +30,9 @@ const apiPaths = {
     DELETE_GOAL:`/goals/delete`,
     DELETE_TRANSACTIONS_FROM_ACCOUNT:`/transactions/delete/byAccount`,
     DELETE_TRANSACTIONS_FROM_GOAL:`/transactions/delete/byGoal`,
-    DELETE_TRANSACTIONS_FROM_CATEGORY:`/transactions/delete/byCategory`
+    DELETE_TRANSACTIONS_FROM_CATEGORY:`/transactions/delete/byCategory`,
+    FORGOT_PASSWORDS:`/forgot-password`,
+    UPDATE_PASSWORD:`/user-password`,
 };
 
 

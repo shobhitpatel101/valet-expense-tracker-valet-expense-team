@@ -1,7 +1,9 @@
 import variables from "../Styles/base/_base.scss"
-import {toast} from 'react-toastify'
+import {toast} from 'react-toastify';
+import axios from 'axios'
 export const checkForEmptyInputs=(obj)=>{
    for(let key in obj) {
+    if(key.toString()==="profileImage") continue;
     if(!obj[key]){
       return false;
     }
@@ -65,6 +67,23 @@ export const handleApiError = () => {
     theme: "colored",
   });
 };
+
+export async function sendOTPEmail(email, otp) {
+  const data = {
+    service_id: "service_7wk0yfn",
+    template_id:"template_15lzdck",
+    user_id:"FI5YeF64rdKWCdP3m",
+    template_params: {
+      email: email,
+      message: `Your OTP for password reset is: ${otp}`,
+      reply_to: "valet.expensetracker@gmail.com",
+      subject: "Password Reset OTP",
+      "g-recaptcha-response": "03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...",
+    },
+  };
+  const response = await axios.post('https://api.emailjs.com/api/v1.0/email/send', data);
+  return response;
+}
 
 
 export const checkForSameProfileDetails = (profileDetails,data)=>{
