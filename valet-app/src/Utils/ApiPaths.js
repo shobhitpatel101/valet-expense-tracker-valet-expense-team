@@ -1,0 +1,37 @@
+const apiPaths = {
+    LOGIN: `/login`,
+    SIGNUP: `/signup`,
+    LOGOUT: `/logout`,
+    VALIDATE_TOKEN:`/validateToken`,
+    FETCH_ACCOUNT_BY_USER : `/accounts`,
+    FETCH_CATEGORY_BY_USER : `/categories`,
+    FETCH_GOAL_BY_USER : `/goals`,
+    FETCH_TRANSACTION_BY_USER : `/transactions`,
+    FETCH_GET_EXPENSE_BY_CATEGORY:`/category/fetchExpensebyCategory`,
+    FETCH_GET_EXPENSE_BY_GOAL:`/category/fetchExpensebyGoal`,
+    GET_ACCOUNT_BY_ID:`/accounts/get`,
+    GET_CATEGORY_BY_ID:`/categories/get`,
+    UPDATE_CATEGORY:`/categories/update`,
+    UPDATE_ACCOUNT:`/accounts/update`,
+    ADD_ACCOUNT: `/accounts/add`,
+    ADD_CATEGORY: `/categories/add`,
+    ADD_GOAL: `/goals/add`,
+    ADD_TRANSACTION: `/transactions/add`,
+    MANGE_BUDGET:`/category/updateBudget`,
+    GET_USER_DETAILS:`/user-details`,
+    UPDATE_USER_DETAILS:`/user-details`,
+    GET_GOAL_BY_ID:`/goals/get`,
+    UPDATE_GOAL:`/goals/update`,
+    GET_TRANSACTION_BY_ID:`/transactions/get`,
+    UPDATE_TRANSACTION:`/transactions/update`,
+    DELETE_TRANSACTION:`/transactions/delete`,
+    DELETE_CATEGORY:`/categories/delete`,
+    DELETE_ACCOUNT:`/accounts/delete`,
+    DELETE_GOAL:`/goals/delete`,
+    DELETE_TRANSACTIONS_FROM_ACCOUNT:`/transactions/delete/byAccount`,
+    DELETE_TRANSACTIONS_FROM_GOAL:`/transactions/delete/byGoal`,
+    DELETE_TRANSACTIONS_FROM_CATEGORY:`/transactions/delete/byCategory`
+};
+
+
+export default apiPaths;

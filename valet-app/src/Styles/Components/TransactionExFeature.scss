@@ -1,0 +1,14 @@
+@import '../../Styles/base/base';
+
+.mini-transaction-ex-feature-cont{
+    width: calc(100% - 20rem);
+}
+.max-transaction-ex-feature-cont{
+    width: 60%;
+    // box-shadow: var(--primary-box-shadow);
+}
+
+.transaction-ex-feature-cont{
+    // box-shadow: var(--primary-box-shadow);
+    height: 100svh;
+}

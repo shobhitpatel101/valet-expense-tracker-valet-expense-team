@@ -1,0 +1,42 @@
+@import '../base/base';
+
+
+.transaction-details-list-item {
+    width: 100%;
+    display: grid;
+    gap: 0.4rem;
+
+    &>.transaction-details-basic-details {
+        display: grid;
+        grid-template-columns: 4fr 2fr 1fr 1fr;
+        align-items: center;
+
+        &>div:nth-child(1) {
+            padding-left: 1rem;
+        }
+
+        &>div:nth-child(2) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    & .transaction-details-description {
+        display: flex;
+        padding-left: 1rem;
+        align-items: center;
+        font-size: 13px;
+    }
+
+    span.date-text {
+        color: var(--light-gray-font-color);
+        font-size: $font-size-secondary;
+    }
+
+    .edit-delete-btn-cont {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}

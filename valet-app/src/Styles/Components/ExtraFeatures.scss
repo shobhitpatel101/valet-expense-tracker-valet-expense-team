@@ -1,0 +1,52 @@
+@import '../base/base';
+
+.extra-features-container {
+    background-color: var(--secondary-background-color);
+    width: calc(40% - 5rem);
+    padding: 1rem;
+    .category-saving-goals-tracker {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        height: 100%;
+        height: calc(100% - 2rem);
+    }
+}
+
+.flip-container {
+    perspective: 1000px;
+}
+
+.flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: calc(100svh - 2rem);
+    /* height: 100svh; */
+}
+
+.front,
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.front {
+    z-index: 2;
+    height: 100%;
+    transform: rotateY(0deg);
+    div{
+    }
+}
+
+.back {
+    transform: rotateY(180deg);
+}

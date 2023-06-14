@@ -1,0 +1,18 @@
+@import '../base/base';
+
+@media only screen and (max-width: 900px)  {
+    .mui-popup-container{
+       h1{
+        font-size:1.3rem;
+       }
+       button{
+        font-size:14px !important;
+       }
+    }
+}
+@media only screen and (min-width: 900px){
+    .mui-popup-container{
+        width: 100%;
+    }
+}
+

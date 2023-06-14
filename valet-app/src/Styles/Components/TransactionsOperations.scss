@@ -1,0 +1,22 @@
+@import '../base/base';
+
+
+.transaction-filter-inputs-cont {
+    width: 100%;
+    display: grid;
+    height: 7rem;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+
+    &>.transaction-filter-date-picker {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        &>div:nth-child(2){
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+@import '../../Styles/base/base';
+
+.user-auth-login-cont {
+    width: 100%;
+    height: 30rem;
+    box-shadow: var(--primary-box-shadow);
+    border-radius: $border-radius-primary;
+    background-color: var(--primary-background-color);
+    display: grid;
+    padding: 3rem;
+    // gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 3fr 2fr 2fr;
+
+    &>.login-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &>.login-inputs {
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+
+        &>div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            div {
+                text-align: right;
+                font-size: $font-size-secondary;
+            }
+        }
+    }
+    & > .login-button{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-size-secondary;
+            }
+        
+    }
+    & > .google-auth-cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        font-size: $font-size-button-primary !important;
+    }
+    
+    a {
+        // pointer-events: none;
+        color: var(--primary-font-color);
+    }
+
+    a:hover {
+        color: var(--primary-font-hover-color);
+    }
+
+
+    // grid-template-rows: ;
+}

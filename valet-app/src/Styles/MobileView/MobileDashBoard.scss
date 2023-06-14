@@ -1,0 +1,166 @@
+@import '../base/base';
+
+
+.dashboard-page-main-container-mobile-view {
+    header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    .no-data-img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+
+        img {
+            width: 45%;
+        }
+    }
+
+    .transaction-header-cont {
+        width: 100%;
+        display: grid;
+        padding-top: 2rem;
+        height: 10rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        button {
+            font-size: 0.7rem;
+        }
+
+        .transaction-header-text {
+            h1 {
+                font-size: 1.2rem;
+            }
+
+        }
+
+        .transaction-header-summary {
+            p {
+                font-size: 0.7rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .transaction-filter-inputs-cont {
+        button {
+
+            font-size: 0.7rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+        }
+    }
+
+    .goals-container {
+
+        .goals-heading-text {
+            &>h2 {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+            }
+
+            // padding: 0;
+        }
+
+        // border-bottom: 1px solid var(--light-gray-font-color);
+        border-radius:0;
+        box-shadow: var(--primary-box-shadow)
+    }
+
+    .accounts-container {
+
+        .accounts-heading-text {
+            &>h2 {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+            }
+
+            // padding: 0;
+        }
+
+        // border-bottom: 1px solid var(--light-gray-font-color);
+        border-radius:0;
+        box-shadow: var(--primary-box-shadow)
+    }
+
+    .categories-container {
+
+        .categories-heading-text {
+            &>h2 {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+            }
+
+            // padding: 0;
+        }
+
+        // border-bottom: 1px solid var(--light-gray-font-color);
+        border-radius:0;
+        box-shadow: var(--primary-box-shadow)
+    }
+
+    .expense-by-category-cont>div:nth-child(2),
+    .expense-by-savinggoals-cont>div:nth-child(2) {
+        padding: 1rem;
+    }
+
+    .expense-by-category-cont>div:nth-child(2),
+    .expense-by-category-cont h3,
+    .expense-by-savinggoals-cont h3 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .categories-container,
+    .goals-container,
+    .accounts-container {
+        padding-top: 4rem;
+    }
+
+    .monthly-overview {
+        padding-top: 5rem;
+        grid-gap: 2rem;
+    }
+
+    .user-profile-container {
+        padding-top: 5rem;
+    }
+
+    .user-auth-login-cont{
+        width: 100%;
+        height: 20rem;
+        box-shadow: var(--primary-box-shadow);
+        border-radius: 50px;
+        background-color: var(--primary-background-color);
+        display: grid;
+        grid-gap: 4px;
+        padding: 3rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr 2fr 2fr;
+
+        button{
+            font-size: 8px important;
+        }
+    }
+    .transaction-details-list-item .edit-delete-btn-cont {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 3rem;
+    }
+
+}

@@ -1,0 +1,11 @@
+@import '../base/base';
+
+.transactions-list-container{
+    width: 100%;
+    overflow-y: scroll;
+    ul{
+        display: grid;
+        gap: 2rem;
+    }
+   
+}

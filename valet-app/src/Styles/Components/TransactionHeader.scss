@@ -1,0 +1,55 @@
+@import '../../Styles/base/base';
+
+.transaction-header-cont {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+
+    p,
+    span {
+        color: var(--dark-gray-font-color);
+        font-weight: bold;
+        font-size: $font-size-secondary;
+    }
+
+    &>.transaction-header-text {
+        display: flex;
+        align-items: center;
+
+        &>div:nth-child(1) {
+            display: flex;
+            width: 70%;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        &>div:nth-child(2) {
+            display: flex;
+            width: 30%;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    &>.transaction-header-day {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &>.transaction-header-summary {
+        display: grid;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1.5fr;
+
+        &>div:nth-child(4) {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 1rem;
+            &>div {
+                text-align: start;
+            }
+        }
+    }
+}

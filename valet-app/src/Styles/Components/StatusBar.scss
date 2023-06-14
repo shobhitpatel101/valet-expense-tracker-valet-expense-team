@@ -1,0 +1,24 @@
+@import '../base/base';
+
+.status-bar-cont{
+    height: 5rem;
+    width: 100%;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-content: center;
+    align-items: center;
+    &>div:nth-child(1){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    p{
+        font-size: 14px;
+        color: var(--gray-font-color);
+    }
+    span{
+        font-size: 13px;
+        font-weight: bold;
+    }
+}

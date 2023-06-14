@@ -1,0 +1,63 @@
+@import '../../Styles/base/base';
+
+.sidebar-container{
+    width: 5rem;
+    height: 100svh;
+    position: sticky;
+    left: 0;
+    top: 0;
+    background-color: var(--primary-background-color);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--primary-box-shadow);
+    z-index: 2;
+    padding: 0 1rem;
+    & > div{
+        width: 100%;  
+    }
+    svg{
+        cursor: pointer;
+    }
+
+    .sidebar-valetdashboard-cont{
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &>div:nth-child(1){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 7rem;
+            h3{
+                font-family: $logo-font;
+                font-size: $font-size-logo-secondary;
+                color: var(--primary-font-color);
+                cursor: pointer;
+            }
+        }
+        &>div:nth-child(2){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        &>div:nth-child(3){
+            margin-top:2rem;
+        }
+    }
+    .sidebar-logout-cont{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mui-switch-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+         &>div{
+            padding-left:2rem;
+         }
+    }
+}

@@ -1,0 +1,53 @@
+@import '../../Styles/base/base';
+
+
+@keyframes menuSlide {
+    from {
+      transform: translateX(0rem);
+      transition-timing-function: ease-in;
+      width: 15rem;
+    }
+    to {
+      transform: translateX(-15rem);
+      transition-timing-function: ease-out;
+      width: 0;
+    }
+  }
+  
+  @keyframes menuSlideOut {
+    from {
+      transform: translateX(-5rem);
+      transition-timing-function: ease-in;
+    }
+    to {
+      transform: translateX(0rem);
+      transition-timing-function: ease-out;
+    }
+  }
+
+.app-bar-container{
+    width: 25rem;
+    height: calc(100svh - 2rem);
+    padding: 1rem 1rem;
+    background-color: var(--secondary-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+    animation: menuSlideOut .5s 1;
+    
+    &>.appbar-close-icon-cont{
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    // transform: translate3d(40px, 0, 0);
+    // transition: transform 0.35s;
+}
+
+.disappear-app-bar-container{
+    // display:none;
+    animation: menuSlide 1s 1;
+    animation-fill-mode: forwards;
+}

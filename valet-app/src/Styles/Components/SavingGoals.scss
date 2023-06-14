@@ -1,0 +1,30 @@
+@import '../base/base';
+
+.expense-by-savinggoals-cont{
+    width: 100%;
+    padding: 1rem 0;
+    h3{
+
+    }
+    & > div:nth-child(2){
+        height: 25rem;
+        display: grid;
+        overflow-y: scroll;
+        grid-template-columns: 1fr;
+        margin-top: 1rem;
+        grid-gap: 1rem;
+        grid-template-rows: repeat(auto-fit,5rem);
+    }
+ 
+    .no-data-img-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15rem;
+
+        img {
+            width: 60%;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@import '../base/base';
+
+
+.user-profile-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+
+    &>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+
+    }
+
+    .user-profile-username>div,
+    .user-profile-email>div,
+    .user-profile-password>div {
+        width: 80%;
+    }
+
+    .upload-photo-icon {
+        position: absolute;
+        top: 9rem;
+        left: 54%;
+        z-index: 1000;
+    }
+
+    .edit-and-save-btn {
+        display: flex;
+        justify-content: center;
+        width: 10rem;
+        button:nth-child(2) {
+            margin-left:1rem;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@import '../../Styles/base/base';
+
+.manage-budget-popup-cont {
+    // width: 100%;
+    // height: 30rem;
+    // box-shadow: var(--primary-box-shadow);
+    border-radius: $border-radius-primary;
+    background-color: var(--primary-background-color);
+    display: grid;
+    padding: 1rem 2rem;
+    // gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 3fr 2fr;
+
+    &>.manage-budget-popup-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &>.manage-budget-popup-inputs {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 1rem;
+        & > div{
+            display: flex;
+            justify-content:space-between;
+            gap: 1.3rem;
+        }
+
+    }
+    & > .manage-budget-popup-button{
+            display: flex;
+            // flex-direction: column;
+            gap: 1rem;
+
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-size-secondary;
+            }
+        
+    }
+    @media only screen and (min-width: 900px)  {
+        button {
+            font-size: $font-size-button-primary !important;
+        }
+    }
+    @media only screen and (max-width: 900px)  {
+        button {
+            font-size: 14px !important;
+            text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+        }
+    }
+    
+
+
+
+    // grid-template-rows: ;
+}

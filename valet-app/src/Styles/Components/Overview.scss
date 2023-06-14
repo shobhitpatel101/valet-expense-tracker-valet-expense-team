@@ -1,0 +1,19 @@
+@import '../base/base';
+
+.monthly-overview {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr 5fr;
+    align-items: center;
+    height: 25rem;
+    h3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    & >div{
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+}

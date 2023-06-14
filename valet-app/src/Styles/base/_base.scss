@@ -1,0 +1,151 @@
+//? Global Variables
+// Light Mode Variables
+$light-default-font-color: rgb(0, 0, 0);
+$light-primary-background-color: #ffff;
+$light-secondary-background-color: #FAFAFA;
+$light-primary-color: #2E66F9;
+$light-green-background-color: hwb(133 16% 16%);
+$light-primary-font-color: #2E66F9;
+$light-secondary-font-color: #333333;
+$light-gray-font-color: #AAAAAA;
+$light-dark-gray-font-color: #7B7B7B;
+$light-light-gray-font-color: #888888;
+$light-logo-color: #ffff;
+$light-primary-font-hover-color: rgb(46, 101, 245);
+$light-box-shadow-primary-color: rgba(0, 0, 0, 0.1);
+$light-primary-box-shadow: 0 0 50px 0 $light-box-shadow-primary-color;
+$light-gray-icon-color: #AAAAAA;
+$light-black-icon-color: #333333;
+$light-break-line-color: #E0E0E0;
+
+// Dark Mode Variables
+$dark-default-font-color: #fff;
+$dark-primary-background-color: #333333;
+$dark-secondary-background-color: #222222;
+$dark-primary-color: #1E90FF;
+$dark-green-background-color: hwb(200 20% 20%);
+$dark-primary-font-color: #ffffff;
+$dark-secondary-font-color: #dddddd;
+$dark-gray-font-color: #888888;
+$dark-dark-gray-font-color: #555555;
+$dark-light-gray-font-color: #aaaaaa;
+$dark-logo-color: #ffffff;
+$dark-primary-font-hover-color: rgb(30, 144, 255);
+$dark-box-shadow-primary-color: rgba(255, 255, 255, 0.1);
+$dark-primary-box-shadow: 0 0 50px 0 $dark-box-shadow-primary-color;
+$dark-gray-icon-color: #dddddd;
+$dark-black-icon-color: #ffffff;
+$dark-break-line-color: #444444;
+
+
+// Switch between Light and Dark Mode
+$theme: 'light'; // Set this value dynamically based on the selected theme
+//BackGround Colours
+// $primary-background-color: if($theme =="light", $light-primary-background-color, $dark-primary-background-color);
+// ;
+// $secondary-background-color: if($theme =="light", $light-secondary-background-color, $dark-secondary-background-color);
+// ;
+// $primary-color: if($theme =="light", $light-primary-color, $dark-primary-color);
+// $green-background-color: if($theme =="light", $light-green-background-color, $dark-green-background-color);
+
+// fonts
+$font-stack: 'DM Sans', sans-serif;
+$logo-font: 'Pacifico', cursive;
+
+
+//Text Colors
+// $default-font-color: if($theme =="light", $light-default-font-color, $dark-default-font-color);
+// $primary-font-color: if($theme =="light", $light-primary-font-color, $dark-primary-font-color);
+
+// $secondary-font-color: if($theme =="light", $light-secondary-font-color, $dark-secondary-font-color);
+// $gray-font-color: if($theme =="light", $light-gray-font-color, $dark-gray-font-color);
+// $dark-gray-font-color: if($theme =="light", $light-dark-gray-font-color, $dark-dark-gray-font-color);
+// $light-gray-font-color: if($theme =="light", $light-light-gray-font-color, $dark-light-gray-font-color);
+// $logo-color: if($theme =="light", $light-logo-color, $dark-logo-color);
+// $primary-font-hover-color: if($theme =="light", $light-primary-font-hover-color, $dark-primary-font-hover-color);
+
+//box-shadow colors
+// $box-shadow-primary-color: if($theme =="light", $light-box-shadow-primary-color, $dark-box-shadow-primary-color);
+
+//font Size
+$font-size-secondary: 14px;
+$font-size-button-primary: 1rem;
+$font-size-logo-primary: 40px;
+$font-size-logo-secondary: 20px;
+$font-size-headings-primary: 16px;
+
+// $primary-box-shadow: if($theme =="light", $light-primary-box-shadow, $dark-primary-box-shadow);
+$border-radius-primary: 50px;
+$border-radius-secondary: 20px;
+
+//icons color
+$gray-icon-color: if($theme =="light", $light-gray-icon-color, $dark-gray-icon-color);
+$black-icon-color: if($theme =="light", $light-black-icon-color, $dark-black-icon-color);
+$break-line-color: if($theme =="light", $light-break-line-color, $dark-break-line-color);
+
+:export {
+  bgColor: var(--primary-background-color);
+  muiTextFieldFontColor: var(--default-font-color);
+}
+
+html[data-theme="light"] {
+  --primary-background-color: #{$light-primary-background-color};
+  --secondary-background-color: #{$light-secondary-background-color};
+  --primary-color:#{$light-primary-color};
+  --green-background-color:#{$light-green-background-color};
+
+  --default-font-color: #{$light-default-font-color};
+  --primary-font-color: #{ $light-primary-font-color};
+
+
+  --secondary-font-color: #{$light-secondary-font-color};
+  --gray-font-color: #{$light-gray-font-color};
+  --dark-gray-font-color: #{$light-dark-gray-font-color};
+  --light-gray-font-color: #{$light-light-gray-font-color};
+  --logo-color: #{$light-logo-color};
+  --primary-font-hover-color: #{$light-primary-font-hover-color};
+
+
+  //box-shadow colors
+  --box-shadow-primary-color: #{$light-box-shadow-primary-color};
+  --primary-box-shadow: #{$light-primary-box-shadow};
+
+}
+
+html[data-theme="dark"] {
+  --primary-background-color: #{$dark-primary-background-color};
+  --secondary-background-color: #{$dark-secondary-background-color};
+  --primary-color:#{$dark-primary-color};
+  --green-background-color:#{$dark-green-background-color};
+
+  --default-font-color: #{$dark-default-font-color};
+  --primary-font-color: #{ $dark-primary-font-color};
+
+
+  --secondary-font-color: #{$dark-secondary-font-color};
+  --gray-font-color: #{$dark-gray-font-color};
+  --dark-gray-font-color: #{$dark-dark-gray-font-color};
+  --light-gray-font-color: #{$dark-light-gray-font-color};
+  --logo-color: #{$dark-logo-color};
+  --primary-font-hover-color: #{$dark-primary-font-hover-color};
+
+
+  //box-shadow colors
+  --box-shadow-primary-color: #{$dark-box-shadow-primary-color};
+  --primary-box-shadow: #{$dark-primary-box-shadow};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-stack;
+  background-color: var(--primary-background-color);
+  color: var(--default-font-color);
+}
+
+hr {
+  border-top: 1px solid $break-line-color;
+}

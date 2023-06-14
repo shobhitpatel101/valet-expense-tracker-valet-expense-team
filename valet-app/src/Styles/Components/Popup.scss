@@ -1,0 +1,69 @@
+@import '../../Styles/base/base';
+
+.popup-cont {
+    // width: 100%;
+    // height: 30rem;
+    // box-shadow: var(--primary-box-shadow);
+    border-radius: $border-radius-primary;
+    background-color: var(--primary-background-color);
+    display: grid;
+    padding: 0rem 1rem;
+    grid-template-columns: 1fr;
+   
+    
+
+    &>.popup-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &>.popup-inputs {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+
+        &>div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            div {
+                text-align: right;
+                font-size: $font-size-secondary;
+            }
+        }
+    }
+    & > .popup-button{
+            display: flex;
+            // flex-direction: column;
+            gap: 1rem;
+
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $font-size-secondary;
+            }
+        
+    }
+
+    @media only screen and (min-width: 900px)  {
+        grid-template-rows: 1fr 3fr 1fr;
+        button {
+            font-size: $font-size-button-primary !important;
+        }
+       
+    }
+    @media only screen and (max-width: 900px)  {
+        grid-template-rows: 1fr 3fr 1fr;
+        button {
+            font-size: 14px !important;
+            text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+        } 
+    }
+    // grid-template-rows: ;
+}
