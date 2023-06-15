@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
               email: req.body.email,
               userId: data["_id"],
             };
-            const token = jwt.sign(user, jwtSecretKey, { expiresIn: "1h" });
+            const token = jwt.sign(user, jwtSecretKey, { expiresIn: "24h" });
             res.status(200).json({
               Status: true,
               "Bearer Token": token,
