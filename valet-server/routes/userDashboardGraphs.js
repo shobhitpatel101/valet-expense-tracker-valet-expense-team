@@ -82,7 +82,7 @@ router.get("/category/fetchExpensebyCategory", authenticateToken, async (req, re
                     if (!isNaN(totalAmount) && !isNaN(dataCategoryBudget)) {
                         const totalAmount1 = parseInt(totalAmount);
                         const dataCategoryBudget1 = parseInt(dataCategoryBudget);
-                        percentage = (totalAmount1/dataCategoryBudget1) * 100
+                        percentage = (Number(totalAmount1)/Number(dataCategoryBudget1)) * 100
 
                       } else {
                         percentage = 0;
@@ -167,10 +167,10 @@ router.get("/category/fetchExpensebyGoal", authenticateToken, async (req, res)=>
                     totalAmount = 0
 
                     dataCategoryName = data[i]['_id']['goalName']
-                    dataCategoryBudget = data[i]['_id']['goalAmount']
+                    dataCategoryBudget = Number(data[i]['_id']['goalAmount'])
                     
                     for(let j=0;j<data[i]['transactions'].length;j++){
-                        dataTransactionAmount = data[i]['transactions'][j]['transactionAmount']
+                        dataTransactionAmount = Number(data[i]['transactions'][j]['transactionAmount'])
                         dataTransactiontype = data[i]['transactions'][j]['transactiontype']
                         
                         if(dataTransactiontype == 'Transfer'){
@@ -183,7 +183,7 @@ router.get("/category/fetchExpensebyGoal", authenticateToken, async (req, res)=>
                         const totalAmount1 = parseInt(totalAmount);
                         const dataCategoryBudget1 = parseInt(dataCategoryBudget);
 
-                        percentage = (totalAmount1/dataCategoryBudget1) * 100
+                        percentage = (Number(totalAmount1)/Number(dataCategoryBudget1)) * 100
 
                       } else {
                         percentage = 0;
@@ -195,7 +195,7 @@ router.get("/category/fetchExpensebyGoal", authenticateToken, async (req, res)=>
                         'totalTransactions': totalAmount,
                         'percentage': percentage
                     }
-                    dataArray.push([dataStruct])
+                    dataArray.push(dataStruct)
                 }
             }
 

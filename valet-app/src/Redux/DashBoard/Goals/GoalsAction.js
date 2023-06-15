@@ -37,7 +37,7 @@ const getGoals = () => {
 };
 
 const addGoal = (
-  { goalName, goalDesc, categoryId, goalAmount },
+  { goalName, goalDesc, goalAmount },
   successCallback = null,
   errorCallback = null
 ) => {
@@ -52,7 +52,6 @@ const addGoal = (
     data: {
       goalName,
       goalDesc,
-      categoryId,
       goalAmount,
     },
   };
@@ -89,7 +88,7 @@ const getGoalById = ({ id }, successCallback = null, errorCallback = null) => {
   return getGoalBYIdAction.action(axiosConfig, successCallback, errorCallback);
 };
 
-const updateGoal = ({ id, goalName, goalDesc, categoryId, goalAmount },successCallback=null, errorCallback=null) => {
+const updateGoal = ({ id, goalName, goalDesc, goalAmount },successCallback=null, errorCallback=null) => {
   const axiosConfig = {
     url: environment.serverUrl + apiPaths.UPDATE_GOAL + `/${id}`,
     method: "PUT",
@@ -98,6 +97,11 @@ const updateGoal = ({ id, goalName, goalDesc, categoryId, goalAmount },successCa
       "Content-Type": "application/json",
       requireCreds: true,
     },
+    data:{
+      goalName,
+      goalDesc,
+      goalAmount,
+    }
   };
   return updateGoalAction.action(axiosConfig, successCallback, errorCallback);
 };

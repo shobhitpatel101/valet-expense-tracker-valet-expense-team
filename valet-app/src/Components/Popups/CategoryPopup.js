@@ -40,6 +40,7 @@ function CategoryPopup({ open, handleClose, isToBeEdited }) {
   };
   const handleGetCategories = (data) => {
     dispatch(getCategories());
+    handleClose()
   };
   const handleAddCategoryError = (data) => {
     handleApiError();

@@ -86,9 +86,8 @@ function Profile() {
   };
 
   const handleUserProfileDetailsUpdate = () => {
-    debugger;
     if (
-      checkForEmptyInputs(userProfileDetails) &&
+      checkForEmptyInputs(userProfileDetails,'profiledetails') &&
       !checkForSameProfileDetails(userProfileDetails, data)
     ) {
       dispatch(

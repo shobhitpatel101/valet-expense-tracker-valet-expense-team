@@ -3,7 +3,7 @@ import "../../../Styles/Components/AppBar.scss";
 import Accounts from "./Accounts";
 import Categories from "./Categories";
 import Goals from "./Goals";
-import { BsBoxArrowInLeft } from "react-icons/bs";
+import { GrClose } from "react-icons/gr";
 import ReactIcons from "../../ReactIcons";
 import { ShowAppBar } from "../../Context/ShowappbarContext";
 import { useContext } from "react";
@@ -13,9 +13,9 @@ function AppBar() {
     <div style={{display:show.display}} className={show.show?"app-bar-container":"disappear-app-bar-container"}>
       <div className="appbar-close-icon-cont">
         <ReactIcons
-          styles={{ height: "30px", width: "30px", cursor: "pointer" }}
+          styles={{ height: "20px", width: "20px", cursor: "pointer",color:'var(--black-icon-color) !important' }}
         >
-          <BsBoxArrowInLeft  onClick={()=>{setShow(false)}}/>
+          <GrClose  onClick={()=>{setShow(false)}}/>
         </ReactIcons>
       </div>
       <Accounts />

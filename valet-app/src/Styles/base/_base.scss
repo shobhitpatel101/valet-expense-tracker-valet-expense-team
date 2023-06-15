@@ -105,7 +105,7 @@ html[data-theme="light"] {
   --logo-color: #{$light-logo-color};
   --primary-font-hover-color: #{$light-primary-font-hover-color};
 
-
+   --black-icon-color: #{$light-black-icon-color};
   //box-shadow colors
   --box-shadow-primary-color: #{$light-box-shadow-primary-color};
   --primary-box-shadow: #{$light-primary-box-shadow};
@@ -129,7 +129,7 @@ html[data-theme="dark"] {
   --logo-color: #{$dark-logo-color};
   --primary-font-hover-color: #{$dark-primary-font-hover-color};
 
-
+  --black-icon-color: #{$dark-black-icon-color};
   //box-shadow colors
   --box-shadow-primary-color: #{$dark-box-shadow-primary-color};
   --primary-box-shadow: #{$dark-primary-box-shadow};

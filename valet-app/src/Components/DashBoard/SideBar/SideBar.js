@@ -36,7 +36,7 @@ function SideBar() {
   const handleShowAppBar = () => {
     setShow((prev) => ({
       display: "",
-      show: true,
+      show: !prev.show,
     }));
   };
   const handleClose = () => {

@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { handleResponseSuccess } from '../../Utils/HelperFunction';
+import { handleInputError, handleResponseSuccess } from '../../Utils/HelperFunction';
 import { handleApiError } from '../../Utils/HelperFunction';
+import { useNavigate } from 'react-router-dom';
+
 
 export const asyncActionTypeCreator = actionName =>({
      pending:`${actionName}_PENDING`,
@@ -25,12 +27,20 @@ export const asyncActionCreator =(actionType)=>{
 
     const action=(axiosConfig,successCallback,errorCallback) =>((dispatch)=>{
          dispatch(pending());
-         
          return axios(axiosConfig).then((response)=>{
             dispatch(fulfilled(response.data));
             handleResponseSuccess(response.data)
             if(successCallback)successCallback(response.data)
          }).catch((error)=>{
+            
+            switch(error.response.status) {
+               case 403:
+                localStorage.removeItem('valet-auth-token')
+                window.location.href = '/'
+                break;
+               default:
+                handleInputError("Something went wrong , please try again later.")
+            } 
             dispatch(rejected(error))
             if(errorCallback)errorCallback(error)
          })

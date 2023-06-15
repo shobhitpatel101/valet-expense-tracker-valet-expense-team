@@ -24,6 +24,8 @@ import { nativeSelectStyle } from "../../Styles/MUI/Mui";
 import { updateTransaction } from "../../Redux/DashBoard/Transactions/TransactionsAction";
 import { deleteTransaction } from "../../Redux/DashBoard/Transactions/TransactionsAction";
 import ConfirmationDialog from "../MuiComponents/ConfirmationDialog";
+import { getExpenseByGoal } from "../../Redux/DashBoard/Goals/GoalsAction";
+import { getExpenseByCategory } from "../../Redux/DashBoard/Category/CategoryAction";
 import {
   addTransaction,
   getTransactions,
@@ -44,7 +46,7 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
   const categoryData = category?.categories?.data || [];
   const goalData = goal?.goals?.data || [];
   const { account } = useContext(AccountContext);
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
 
   const [transactionDetails, setTransactionDetails] = useState({
     transactionName: "",
@@ -65,7 +67,10 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
     }));
   };
   const handleGetTransactions = (data) => {
-    disptach(getTransactions());
+    dispatch(getTransactions());
+    dispatch(getExpenseByCategory());
+    dispatch(getExpenseByGoal());
+    handleClose();
   };
   const handleAddTransactionError = (data) => {
     handleApiError();
@@ -79,7 +84,7 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
 
     if (checkForEmptyInputs(transactionDetails)) {
       if (isToBeEdited) {
-        disptach(
+        dispatch(
           updateTransaction(
             { id: singleTransaction.data._id, ...transactionDetails },
             handleGetTransactions,
@@ -87,7 +92,7 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
           )
         );
       } else {
-        disptach(
+        dispatch(
           addTransaction(
             transactionDetails,
             handleGetTransactions,
@@ -151,8 +156,8 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
     }
   }, [isToBeEdited, singleTransaction]);
   useEffect(() => {
-    disptach(getCategories());
-    disptach(getGoals());
+    dispatch(getCategories());
+    dispatch(getGoals());
   }, []);
 
   useEffect(() => {
@@ -179,6 +184,7 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
                 name="transactionName"
                 size="medium"
                 fullWidth
+            
                 onChange={handleTransactionDetailsChange}
               />
             </TransactionStyledDiv>
@@ -189,6 +195,7 @@ function TransactionPopup({ open, handleClose, isToBeEdited = false }) {
                 className="transaction-amount-input"
                 placeholder="80000"
                 label="Amount"
+                inputProps={{ min: 0 }}
                 variant="standard"
                 size="medium"
                 name="transactionAmount"

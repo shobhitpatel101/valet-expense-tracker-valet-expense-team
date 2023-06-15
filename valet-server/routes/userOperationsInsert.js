@@ -79,30 +79,39 @@ router.post("/goals/add",authenticateToken, async (req, res)=>{
             const goaldata = new goalSchema({
                     goalName: req.body.goalName,
                     goalDesc: req.body.goalDesc,
-                    categoryId: req.body.categoryId,
                     userId: req.user.userId, //from token
                     goalAmount: req.body.goalAmount,
                     createTimeStamp: Date.now()
             })
 
-            await categorySchema.findById(req.body.categoryId).then((data)=>{
                     //console.log(data)
-                    if(data.length != 0){
-                        goalSchema.find({$and: [{goalName: {$eq: req.body.goalName}, userId: {$eq: req.user.userId}}]}).then((account)=>{
-                            if(account.length > 0) 
-                                res.status(200).json({"Status":false, "Message":"Goal already exists!"})
-                            else {
-                                    goaldata.save().then((data) => {
-                                    res.status(200).json({"Status": true,"Message":"OK, Goal Created.", "data" : data}); 
-                                });
-                            }
-                        })
-                    }else{
-                        res.status(200).json({"Status":false,"Message": "Category Not registered!"})
-                    }
-                }).catch((err)=>{
-                    res.status(500).json({"Status": false, "Error": err.message })
-                })
+         await goalSchema
+           .find({
+             $and: [
+               {
+                 goalName: { $eq: req.body.goalName },
+                 userId: { $eq: req.user.userId },
+               },
+             ],
+           })
+           .then((account) => {
+             if (account.length > 0)
+               res
+                 .status(200)
+                 .json({ Status: false, Message: "Goal already exists!" });
+             else {
+               goaldata.save().then((data) => {
+                 res
+                   .status(200)
+                   .json({
+                     Status: true,
+                     Message: "OK, Goal Created.",
+                     data: data,
+                   });
+               });
+             }
+           });
+                    
     } catch(err){
         res.status(500).json({"Status": false, "Error": err.message })
     }

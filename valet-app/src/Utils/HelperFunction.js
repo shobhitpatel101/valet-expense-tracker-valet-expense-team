@@ -1,11 +1,16 @@
 import variables from "../Styles/base/_base.scss"
 import {toast} from 'react-toastify';
-import axios from 'axios'
-export const checkForEmptyInputs=(obj)=>{
+import axios from 'axios';
+
+export const checkForEmptyInputs=(obj,type)=>{
    for(let key in obj) {
     if(key.toString()==="profileImage") continue;
+    if(type === 'profiledetails' && key.toString() === 'password') continue;
     if(!obj[key]){
       return false;
+    }else if(!isNaN(Number(obj[key])) && Number(obj[key]) < 0){
+      handleInputError("Amount Value can not be less than 0.")
+      return false
     }
    }
    return true;
@@ -88,9 +93,11 @@ export async function sendOTPEmail(email, otp) {
 
 export const checkForSameProfileDetails = (profileDetails,data)=>{
    for(let key in profileDetails){
+    if(key.toString() !== 'password'){
       if(profileDetails[key] !== data[key]){
         return false;
       }
+    }
    }
    return true;
 }

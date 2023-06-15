@@ -19,6 +19,7 @@ import { checkForEmptyInputs } from "../../Utils/HelperFunction";
 import { handleInputError } from "../../Utils/HelperFunction";
 import { textFieldStyle } from "../../Styles/MUI/Mui";
 import { nativeSelectStyle } from "../../Styles/MUI/Mui";
+import { getExpenseByCategory } from "../../Redux/DashBoard/Category/CategoryAction";
 function ManageBudgetPopup({ open, handleClose }) {
   const {category } = useSelector((state) => state, shallowEqual) || {};
   const categoryData = category?.categories?.data || [];
@@ -40,7 +41,10 @@ function ManageBudgetPopup({ open, handleClose }) {
     if(!checkForEmptyInputs(manageBudgetPayload)){
        handleInputError("Check your inputs!")
     }else{
-      dispatch(manageBudget(manageBudgetPayload))
+      dispatch(manageBudget(manageBudgetPayload,()=>{
+        dispatch(getExpenseByCategory())
+        handleClose()
+      }))
     }
   }
   return (

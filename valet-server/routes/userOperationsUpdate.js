@@ -46,9 +46,9 @@ router.put("/user-details", authenticateToken, async (req, res) => {
     const userData = {
       userName: req.body.userName,
       email: req.body.email,
-      password: req.body.password,
       profileImage: req.body.profileImage,
     };
+    if(!userData.profileImage) delete userData.profileImage;
     const userId = { _id: req.user.userId };
     await userSchema
       .updateOne(userId, { $set: userData })

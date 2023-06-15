@@ -11,30 +11,21 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 import { addGoal } from "../../Redux/DashBoard/Goals/GoalsAction";
 import { getCategories } from "../../Redux/DashBoard/Category/CategoryAction";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import { v4 as uuidv4 } from "uuid";
-import Select from "@mui/material/Select";
 import { getGoals } from "../../Redux/DashBoard/Goals/GoalsAction";
 import { checkForEmptyInputs } from "../../Utils/HelperFunction";
 import { handleApiError } from "../../Utils/HelperFunction";
 import { handleInputError } from "../../Utils/HelperFunction";
 import { textFieldStyle } from "../../Styles/MUI/Mui";
-import { nativeSelectStyle } from "../../Styles/MUI/Mui";
 import { updateGoal } from "../../Redux/DashBoard/Goals/GoalsAction";
 
 function AddGoalPopup({ open, handleClose, isToBeEdited }) {
-  const { category } = useSelector((state) => state, shallowEqual) || {};
   const { singleGoal } = useSelector(({ goal }) => goal, shallowEqual) || {};
 
-  const categoryData = category?.categories?.data || [];
 
   const dispatch = useDispatch();
   const [goalDetails, setGoalDetails] = useState({
     goalName: "",
     goalDesc: "",
-    categoryId: "",
     goalAmount: "",
   });
 
@@ -47,6 +38,7 @@ function AddGoalPopup({ open, handleClose, isToBeEdited }) {
   };
   const handleGetGoals = (data) => {
     dispatch(getGoals(data));
+    handleClose()
   };
   const handleAddGoalError = (data) => {
     handleApiError();
@@ -75,13 +67,11 @@ function AddGoalPopup({ open, handleClose, isToBeEdited }) {
         goalName: singleGoal?.data?.goalName || "",
         goalDesc: singleGoal?.data?.goalDesc || "",
         goalAmount: singleGoal?.data?.goalAmount || 0,
-        categoryId: singleGoal?.data?.categoryId || "",
       });
     } else {
       setGoalDetails({
         goalName: "",
         goalDesc: "",
-        categoryId: "",
         goalAmount: "",
       });
     }
@@ -123,31 +113,6 @@ function AddGoalPopup({ open, handleClose, isToBeEdited }) {
                 name="goalDesc"
                 fullWidth
               />
-            </div>
-            <div>
-              <FormControl fullWidth variant="standard">
-                <InputLabel id="account-for-category">Category</InputLabel>
-                <Select
-                  labelId="category-for-goal"
-                  id="category-select"
-                  sx={nativeSelectStyle}
-                  value={goalDetails.categoryId}
-                  name="categoryId"
-                  onChange={handleGoalDetailsChange}
-                  label="Category"
-                  fullWidth
-                >
-                  {categoryData && categoryData.length
-                    ? categoryData.map((el) => {
-                        return (
-                          <MenuItem key={uuidv4()} value={el._id}>
-                            {el.categoryName}
-                          </MenuItem>
-                        );
-                      })
-                    : null}
-                </Select>
-              </FormControl>
             </div>
             <div>
               <TextField

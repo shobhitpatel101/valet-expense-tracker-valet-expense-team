@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "./Components/Context/ThemeContext";
 import { AuthProvider } from "./Components/Context/AuthContext";
+import { getAuthTokenStatus } from "./Routes/AppRoutes";
 function App() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
@@ -14,18 +15,20 @@ function App() {
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
-      if (window.innerWidth > 900 && location.pathname !== "/dashboard") {
-        navigate("/dashboard");
-      } else if (
-        window.innerWidth <= 900 &&
-        location.pathname === "/dashboard"
-      ) {
-        navigate("/mobile-dashboard");
-      } else if (
-        window.innerWidth <= 900 &&
-        location.pathname !== "/dashboard"
-      ) {
-        navigate(location.pathname);
+      if (getAuthTokenStatus()) {
+        if (window.innerWidth > 900 && location.pathname !== "/dashboard") {
+          navigate("/dashboard");
+        } else if (
+          window.innerWidth <= 900 &&
+          location.pathname === "/dashboard"
+        ) {
+          navigate("/mobile-dashboard");
+        } else if (
+          window.innerWidth <= 900 &&
+          location.pathname !== "/dashboard"
+        ) {
+          navigate(location.pathname);
+        }
       }
     };
     window.addEventListener("resize", handleResize);

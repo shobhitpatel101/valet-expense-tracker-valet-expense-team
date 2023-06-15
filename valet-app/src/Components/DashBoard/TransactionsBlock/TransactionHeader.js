@@ -6,14 +6,14 @@ import { useState } from "react";
 import TransactionPopup from "../../Popups/TransactionPopup";
 import { AccountContext } from "../../Context/AccountsContext";
 import { useContext } from "react";
-import { useSelector,shallowEqual } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 import { handleInputError } from "../../../Utils/HelperFunction";
-function TransactionHeader({ headersValues, data = []}) {
+function TransactionHeader({ headersValues, data = [] }) {
   const { goal, category } = useSelector((state) => state, shallowEqual) || {};
   const categoryData = category?.categories?.data || [];
   const goalData = goal?.goals?.data || [];
   const [open, setOpen] = useState(false);
-  const {account} = useContext(AccountContext);
+  const { account } = useContext(AccountContext);
   const [totalIncomeExpense, setTotalIncomeExpense] = useState({
     totalIncome: 0,
     totalExpense: 0,
@@ -23,9 +23,12 @@ function TransactionHeader({ headersValues, data = []}) {
     setOpen(false);
   };
   const handleOpen = () => {
-    if(goalData.length === 0 && categoryData.length === 0) {
-    handleInputError("Add goal or category for proceeding with transaction!");
-       return ;
+    if (!account.accountName)
+      return handleInputError("Add account for proceeding with transaction!");
+
+    if (goalData.length === 0 && categoryData.length === 0) {
+      handleInputError("Add goal or category for proceeding with transaction!");
+      return;
     }
     setOpen(true);
   };
@@ -42,17 +45,18 @@ function TransactionHeader({ headersValues, data = []}) {
           ...prev,
           totalIncome: prev.totalIncome + Number(transaction.transactionAmount),
         }));
-      } else if(transaction.transactiontype === "Expense") {
+      } else if (transaction.transactiontype === "Expense") {
         setTotalIncomeExpense((prev) => ({
           ...prev,
           totalExpense:
             prev.totalExpense + Number(transaction.transactionAmount),
         }));
-      }else{
+      } else {
         setTotalIncomeExpense((prev) => ({
           ...prev,
-          totalInvestments:prev.totalInvestments + Number(transaction.transactionAmount),
-        }))
+          totalInvestments:
+            prev.totalInvestments + Number(transaction.transactionAmount),
+        }));
       }
     });
   }, [data]);
@@ -66,14 +70,20 @@ function TransactionHeader({ headersValues, data = []}) {
         <div>
           <Button
             onClick={handleOpen}
-            style={{ ...muiOutlinedButtonStyle, backgroundColor: "transperent" }}
+            style={{
+              ...muiOutlinedButtonStyle,
+              backgroundColor: "transperent",
+            }}
           >
             Add Transaction
           </Button>
         </div>
       </div>
       <div className="transaction-header-day">
-        <span>{headersValues} {account.accountName ? `(${account.accountName} account)` : null}</span>
+        <span>
+          {headersValues}{" "}
+          {account.accountName ? `(${account.accountName} account)` : null}
+        </span>
       </div>
       <div className="transaction-header-summary">
         <div>
@@ -102,7 +112,8 @@ function TransactionHeader({ headersValues, data = []}) {
             <h2>
               &#8377;{" "}
               {totalIncomeExpense.totalIncome -
-                (totalIncomeExpense.totalExpense + totalIncomeExpense.totalInvestments) || 0}
+                (totalIncomeExpense.totalExpense +
+                  totalIncomeExpense.totalInvestments) || 0}
             </h2>
           </div>
         </div>

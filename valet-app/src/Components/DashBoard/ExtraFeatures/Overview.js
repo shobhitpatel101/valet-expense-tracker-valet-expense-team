@@ -82,7 +82,7 @@ function Overview() {
               },
             };
           });
-        } else {
+        } else if(el.transactiontype === "Expense") {
           setMonthlyTransactions((prev) => {
             return {
               ...prev,

@@ -33,6 +33,7 @@ function AddAccountPopup({open,handleClose,isToBeEdited}) {
 
   const handleGetAccounts=(data)=>{
     dispatch(getAccounts())
+    handleClose();
   }
   const handleAddAccountError=(data)=>{
     handleApiError();
