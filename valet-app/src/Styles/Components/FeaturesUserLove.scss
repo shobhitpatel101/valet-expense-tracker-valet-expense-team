@@ -1,0 +1,52 @@
+@import '../base/base';
+
+.features-user-love-container {
+    display: flex;
+    justify-content: center;
+    height: 25rem;
+
+    &>div {
+        height: 100%;
+    }
+
+    .features-user-love-heading {
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .features-user-love-content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.5rem;
+        height: 70%;
+
+        &>div {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--tertiary-background-color);
+            gap: 1rem;
+            flex-direction: column;
+            border-radius: 20px;
+
+            img {
+                width: 50%;
+            }
+
+            &>div:nth-child(2) {
+                width: 100%;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import '../base/base';
+
+
+.navbar-container{
+    height:6rem;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    h2{
+        font-family: $logo-font;
+        color:#fff;
+        cursor: pointer;
+    }
+}
+
