@@ -3,6 +3,7 @@
 $light-default-font-color: rgb(0, 0, 0);
 $light-primary-background-color: #ffff;
 $light-secondary-background-color: #FAFAFA;
+$light-tertiary-background-color: #F1F1F1;
 $light-primary-color: #2E66F9;
 $light-green-background-color: hwb(133 16% 16%);
 $light-primary-font-color: #2E66F9;
@@ -22,6 +23,7 @@ $light-break-line-color: #E0E0E0;
 $dark-default-font-color: #fff;
 $dark-primary-background-color: #333333;
 $dark-secondary-background-color: #222222;
+$dark-tertiary-background-color: #222222;
 $dark-primary-color: #1E90FF;
 $dark-green-background-color: hwb(200 20% 20%);
 $dark-primary-font-color: #ffffff;
@@ -91,9 +93,10 @@ $break-line-color: if($theme =="light", $light-break-line-color, $dark-break-lin
 html[data-theme="light"] {
   --primary-background-color: #{$light-primary-background-color};
   --secondary-background-color: #{$light-secondary-background-color};
+  --tertiary-background-color: #{$light-tertiary-background-color};
   --primary-color:#{$light-primary-color};
   --green-background-color:#{$light-green-background-color};
-
+  
   --default-font-color: #{$light-default-font-color};
   --primary-font-color: #{ $light-primary-font-color};
 
@@ -104,6 +107,7 @@ html[data-theme="light"] {
   --light-gray-font-color: #{$light-light-gray-font-color};
   --logo-color: #{$light-logo-color};
   --primary-font-hover-color: #{$light-primary-font-hover-color};
+  --break-line-color:#{$light-break-line-color};
 
    --black-icon-color: #{$light-black-icon-color};
   //box-shadow colors
@@ -115,6 +119,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --primary-background-color: #{$dark-primary-background-color};
   --secondary-background-color: #{$dark-secondary-background-color};
+  --tertiary-background-color: #{$dark-tertiary-background-color};
   --primary-color:#{$dark-primary-color};
   --green-background-color:#{$dark-green-background-color};
 
@@ -130,6 +135,7 @@ html[data-theme="dark"] {
   --primary-font-hover-color: #{$dark-primary-font-hover-color};
 
   --black-icon-color: #{$dark-black-icon-color};
+  --break-line-color:#{$dark-break-line-color};
   //box-shadow colors
   --box-shadow-primary-color: #{$dark-box-shadow-primary-color};
   --primary-box-shadow: #{$dark-primary-box-shadow};

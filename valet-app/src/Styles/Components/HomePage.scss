@@ -1,0 +1,59 @@
+@import '../base//base';
+
+.home-page-container {
+    width: 100%;
+    height: 100dvh;
+}
+
+@media only screen and (max-width:900px) {
+    .features-box-container>div {
+        height: auto !important;
+        min-height:40rem !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        overflow: hidden;
+    }
+
+    .features-box-container .features-box-simple-money-tracker,
+    .features-box-container .features-box-whole-picture,
+    .features-box-container .features-box-painless-budgeting {
+        display: flex !important;
+         gap: 0rem !important; 
+        flex-direction: column !important;
+        width: 80% !important;
+
+        img {
+            width: 15rem !important;
+            border-radius: 30px;
+            box-shadow: var(--primary-box-shadow);
+        }
+    }
+
+    .features-box-container .features-box-simple-money-tracker>div:nth-child(2),
+    .features-box-container .features-box-whole-picture>div:nth-child(2),
+    .features-box-container .features-box-painless-budgeting>div:nth-child(2) {
+        display: flex !important;
+        width: 100% !important;
+        height: 50% !important;
+        /* padding: 0 2rem; */
+        gap: 1rem !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .features-box-container .features-box-simple-money-tracker > div:nth-child(1), .features-box-container .features-box-whole-picture > div:nth-child(1), .features-box-container .features-box-painless-budgeting > div:nth-child(1) {
+
+        height: 50% !important;
+    }
+    .features-user-love-container {
+        height: auto  !important;
+        padding: 1rem;
+    }
+    .home-links-container .home-links-heading p {
+        width: 18rem !important;
+    }
+    .footer-container > div {
+        text-align: center;
+    }
+}

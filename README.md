@@ -79,7 +79,7 @@ You can also take a glimpse of our Project, just follow the below steps:
 
 
 
-We used another GitHub repository for making our project, that you can find here: https://github.com/onesimplelife
+We used another GitHub repository while building our project, that you can find here: https://github.com/onesimplelife
 
 ## Authors
 - [@Omkar Gavade](https://github.com/omkarvgavade)

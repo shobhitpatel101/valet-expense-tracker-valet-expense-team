@@ -1,16 +1,20 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React from "react";
+import "../Styles/Components/HomePage.scss";
+import NavBar from "../Components/DashBoard/Home/NavBar";
+import HomeLinks from "../Components/DashBoard/Home/HomeLinks";
+import FeaturesBox from "../Components/DashBoard/Home/FeaturesBox";
+import FeaturesUserLove from "../Components/DashBoard/Home/FeaturesUserLove";
+import Footer from "../Components/DashBoard/Home/Footer";
 function HomePage() {
   return (
-    <div style={{display:"flex",justifyContent:"center",marginTop:"1rem"}}>
-      <Link to="/login">Login</Link>
-      <div style={{marginLeft:"1rem"}}>
-      <Link to="/signup">Signup</Link>
-      </div>
-      
-      
+    <div className="home-page-container">
+      <NavBar />
+      <HomeLinks />
+      <FeaturesBox />
+      <FeaturesUserLove/>
+      <Footer/>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
